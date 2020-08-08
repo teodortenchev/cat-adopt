@@ -1,0 +1,14 @@
+.body {
+    background-color: wheat;
+    border: 5px white;
+    width: 30%;
+    opacity: 75%;
+    border-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin-top: 20px;
+    flex-flow: column;
+    padding: 5px 10px 10px 10px;
+    min-width: 300px;    
+}
