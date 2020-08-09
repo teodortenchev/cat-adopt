@@ -1,5 +1,4 @@
 .container {
-    
         background-color: wheat;
         border: 5px white;
         width: 40%;
@@ -8,8 +7,23 @@
         align-items: center;
         justify-content: center;
         display: flex;
-        margin-top: 20px;
+        margin-top: 50px;
         flex-flow: column;
         padding: 5px 10px 10px 10px;
-        min-width: 300px;    
+        min-width: 300px;
+}
+
+.form {
+        display: flex;
+        flex-direction: column;
+}
+
+.link {
+        font-size: small;
+        text-decoration: none;
+        color: black;
+}
+
+.link:visited {
+        color: black;
 }
