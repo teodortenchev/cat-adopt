@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import SimpleLink from '../../components/links/simple-link';
 import FormControl from '../../components/form-control'
 import Title from '../../components/title'
 import PageLayout from '../../components/page-layout';
-import styles from './index.module.css';
+import FormWrapper from '../../components/form-wrapper';
 import Button from '../../components/button/submit-button';
 
 
@@ -31,29 +31,28 @@ const LogInPage = () => {
 
     return (
         <PageLayout>
-            <div className={styles.container}>
+            <FormWrapper>
                 <Title title="Sign In" />
-                <form className={styles.form}>
-                    <FormControl htmlFor="userEmail" fieldName="Email" type="email" name="userEmail"
-                        value={email} placeholder="Email Address" id="userEmail"
-                        onChange={(event) => onChangeHandler(event)} />
 
-                    <FormControl htmlFor="userPassword" fieldName="Password" type="password" name="userPassword"
-                        value={password} placeholder="Password" id="userPassword"
-                        onChange={(event) => onChangeHandler(event)} />
-                    <Button title="Sign In"
-                        onClick={(event) => signInWithEmailAndPasswordHandler(event, email, password)} />
-                </form>
+                <FormControl htmlFor="userEmail" fieldName="Email" type="email" name="userEmail"
+                    value={email} placeholder="Email Address" id="userEmail"
+                    onChange={(event) => onChangeHandler(event)} />
 
-                <Link to="/register" className={styles.link}>
-                    No Account? Sign up here
-          </Link>
+                <FormControl htmlFor="userPassword" fieldName="Password" type="password" name="userPassword"
+                    value={password} placeholder="Password" id="userPassword"
+                    onChange={(event) => onChangeHandler(event)} />
+               
+                <Button title="Sign In"
+                    onClick={(event) => signInWithEmailAndPasswordHandler(event, email, password)} />
                 
-                <Link to="/passwordReset" className={styles.link}>
-                    Forgot Password?
-          </Link>
-            </div>
-        </PageLayout>
+                <SimpleLink title="No Account? Sign up here" to="/register" />
+
+                <SimpleLink title="Forgot password" to="/passwordReset" />
+            </FormWrapper>
+
+
+
+        </PageLayout >
     )
 }
 

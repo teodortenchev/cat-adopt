@@ -36,19 +36,6 @@
     display: flex;
     font-size: 12px;
     font-weight: 700;
-    margin-right: 10px;
-    margin-left: 10px;
     align-items: center;
-    margin: 5px 5px;
-}
-
-.header__optionBasket {
-    display: flex;
-    font-size: 12px;
-    font-weight: 700;
-    margin-right: 10px;
-    margin-left: 10px;
-    align-items: center;
-    margin: 5px 20px;
-    
+    margin: 5px 15px;
 }
