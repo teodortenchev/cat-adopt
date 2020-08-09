@@ -3,14 +3,15 @@
 }
 
 body {
-  background-image: url("../../images/stephanie-harvey-tWuaMnbbRHA-unsplash.jpg");
+  background-image: url("../../../images/stephanie-harvey-tWuaMnbbRHA-unsplash.jpg");
   background-position: center center;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
 }
 
-.container__body {
+.container {
   display: flex;
   justify-content: center;
 }
+
