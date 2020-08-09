@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import SimpleLink from '../../components/links/simple-link';
 import FormControl from '../../components/form-control'
 import Title from '../../components/title'
-import PageLayout from '../../components/page-layout';
+import PageLayout from "../layouts/page-layout";
 import Button from '../../components/button/submit-button';
 import FormWrapper from '../../components/form-wrapper';
 

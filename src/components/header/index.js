@@ -3,7 +3,6 @@ import logo from '../../images/logo.png';
 import './index.css';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 
 const Header = () => {
     return (

@@ -1,7 +1,6 @@
 import React from 'react';
-import PageLayout from "../../components/page-layout";
+import PageLayout from "../layouts/page-layout";
 import './index.css';
-import heroImage from '../../images/manja-vitolic-gKXKBY-C-Dk-unsplash.jpg';
 import Title from '../../components/title';
 
 const HomePageGuest = () => {
