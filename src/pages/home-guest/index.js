@@ -5,6 +5,7 @@ import Title from '../../components/title';
 import firebase from '../../utils/firebase'
 
 const HomePageGuest = () => {
+    console.log('USERNAME  +++++++ ', firebase.getCurrentUsername())
     return (
         <PageLayout>
             <div className={styles.container}>
