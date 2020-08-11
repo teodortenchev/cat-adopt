@@ -6,7 +6,7 @@ import Title from '../../components/title';
 const HomePageGuest = () => {
     return (
         <PageLayout>
-            <div className={styles.body}>
+            <div className={styles.container}>
                 <Title title= "Looking to adopt a cat?" />
                 <p>The Cat Adopt Foundation shelter has countless deserving cats in need of loving homes. 
                     Register and search our website to find the perfect companion for your family. 

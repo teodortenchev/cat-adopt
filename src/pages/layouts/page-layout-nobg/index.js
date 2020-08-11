@@ -6,7 +6,7 @@ const PageLayoutNoBG = (props) => {
     return (
         <div className={styles.wrapper}>
             <UpperNav />
-            <div className="container">
+            <div className={styles.container}>
                 {props.children}
             </div>
         </div>
