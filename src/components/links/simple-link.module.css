@@ -7,3 +7,6 @@
 .link:visited {
     color: black;
 }
+.link:hover {
+    text-decoration: underline;
+}

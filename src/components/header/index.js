@@ -8,7 +8,7 @@ const Header = () => {
     return (
         <nav className="header">
             <Link to="/">
-                <img className="header__logo" src={logo} />
+                <img className="header__logo" src={logo} alt="logo" />
             </Link>
             <div className="header__search">
                 <input type="text" className="header__searchInput" />
