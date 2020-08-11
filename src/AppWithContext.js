@@ -31,7 +31,6 @@ const App = (props) => {
   return (
     <UserContext.Provider value={{ isLoggedIn, appUser, logout: logout }}>
       {props.children}
-      
     </UserContext.Provider>
   );
 }
