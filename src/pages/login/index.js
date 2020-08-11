@@ -26,7 +26,6 @@ const LogInPage = (props) => {
     }
 
     async function login() {
-        console.log("the log in fired")
         try {
             await firebase.login(email, password);
             props.history.push('/');
