@@ -8,7 +8,6 @@ import Button from '../../components/button/submit-button';
 import firebase from '../../utils/firebase';
 import styles from './index.module.css'
 
-
 const LogInPage = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -30,7 +29,7 @@ const LogInPage = (props) => {
         console.log("the log in fired")
         try {
             await firebase.login(email, password);
-            this.props.history.push('/');
+            props.history.push('/');
 
 
         } catch (error) {
