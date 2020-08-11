@@ -1,10 +1,10 @@
 import React from 'react';
-import './index-nobg.css';
+import styles from './index.module.css';
 import UpperNav from '../../../components/header';
 
 const PageLayoutNoBG = (props) => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             <UpperNav />
             <div className="container">
                 {props.children}
