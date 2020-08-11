@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
-const firebaseConfig = {
+const config = {
     apiKey: "AIzaSyB7v6SJwuYkFGhC_D4hRe7YKPX8hZ5Kx1g",
     authDomain: "catfur-store.firebaseapp.com",
     databaseURL: "https://catfur-store.firebaseio.com",
@@ -13,7 +13,39 @@ const firebaseConfig = {
     measurementId: "G-9LV00FJRBQ"
 };
 
-firebase.initializeApp(firebaseConfig);
 
-export const auth = firebase.auth();
-export const firestore = firebase.firestore();
+class Firebase {
+    constructor() {
+        firebase.initializeApp(config);
+        this.auth = firebase.auth();
+        this.db = firebase.firestore();
+    }
+
+    login(email, password) {
+        return this.auth.signInWithEmailAndPassword(email, password);
+    }
+
+    logout() {
+        return this.auth.signOut()
+    }
+
+    async register(name, email, password) {
+        await this.auth.createUserWithEmailAndPassword(email, password);
+        return this.auth.currentUser.updateProfile({
+            displayName: name
+        })
+    }
+
+    isInitialized() {
+		return new Promise(resolve => {
+			this.auth.onAuthStateChanged(resolve)
+		})
+    }
+    
+    getCurrentUsername() {
+		return this.auth.currentUser && this.auth.currentUser.displayName
+    }
+    
+}
+
+export default new Firebase()

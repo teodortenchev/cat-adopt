@@ -2,6 +2,7 @@ import React from 'react';
 import PageLayout from "../layouts/page-layout";
 import styles from './index.module.css';
 import Title from '../../components/title';
+import firebase from '../../utils/firebase'
 
 const HomePageGuest = () => {
     return (

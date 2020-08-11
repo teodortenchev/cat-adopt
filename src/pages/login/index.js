@@ -5,17 +5,15 @@ import Title from '../../components/title'
 import PageLayout from "../layouts/page-layout";
 import FormWrapper from '../../components/form-wrapper';
 import Button from '../../components/button/submit-button';
+import firebase from '../../utils/firebase';
+import styles from './index.module.css'
 
 
-const LogInPage = () => {
+const LogInPage = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const [error, setError] = useState('');
-
-    const signInWithEmailAndPasswordHandler = (event, email, password) => {
-        event.preventDefault();
-    };
 
     const onChangeHandler = (event) => {
         const { name, value } = event.currentTarget;
@@ -26,14 +24,25 @@ const LogInPage = () => {
         else if (name === 'userPassword') {
             setPassword(value);
         }
+    }
 
+    async function login() {
+        console.log("the log in fired")
+        try {
+            await firebase.login(email, password);
+            this.props.history.push('/');
+
+
+        } catch (error) {
+            setError(error.message);
+        }
     }
 
     return (
         <PageLayout>
             <FormWrapper>
                 <Title title="Sign In" />
-
+                <div className={styles.error}>{error}</div>
                 <FormControl htmlFor="userEmail" fieldName="Email" type="email" name="userEmail"
                     value={email} placeholder="Email Address" id="userEmail"
                     onChange={(event) => onChangeHandler(event)} />
@@ -41,10 +50,10 @@ const LogInPage = () => {
                 <FormControl htmlFor="userPassword" fieldName="Password" type="password" name="userPassword"
                     value={password} placeholder="Password" id="userPassword"
                     onChange={(event) => onChangeHandler(event)} />
-               
+
                 <Button title="Sign In"
-                    onClick={(event) => signInWithEmailAndPasswordHandler(event, email, password)} />
-                
+                    onClick={login} />
+
                 <SimpleLink title="No Account? Sign up here" to="/register" />
 
                 <SimpleLink title="Forgot password" to="/passwordReset" />
