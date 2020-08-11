@@ -4,8 +4,6 @@ import firebase from './utils/firebase'
 
 
 const App = (props) => {
-
-  console.log(props);
   const [isLoggedIn, setIsLoggedIn] = useState(null);
   const [appUser, setUser] = useState(null);
 
