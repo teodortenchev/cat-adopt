@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import SimpleLink from '../../components/links/simple-link';
 import FormControl from '../../components/form-control'
 import Title from '../../components/title'
 import PageLayout from "../layouts/page-layout";
@@ -7,6 +6,7 @@ import FormWrapper from '../../components/form-wrapper';
 import Button from '../../components/button/submit-button';
 import firebase from '../../utils/firebase';
 import styles from './index.module.css'
+import CustomLink from '../../components/link';
 
 const LogInPage = (props) => {
     const [email, setEmail] = useState('');
@@ -52,9 +52,9 @@ const LogInPage = (props) => {
                 <Button title="Sign In"
                     onClick={login} />
 
-                <SimpleLink title="No Account? Sign up here" to="/register" />
+                <CustomLink title="No Account? Sign up here" to="/register" styleType="form-simple" />
 
-                <SimpleLink title="Forgot password" to="/passwordReset" />
+                <CustomLink title="Forgot password" to="/passwordReset" styleType="form-simple" />
             </FormWrapper>
 
 

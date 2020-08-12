@@ -1,49 +1,41 @@
 import React, { useContext } from 'react';
 import logo from '../../images/logo.png';
-import './index.css';
+import styles from './index.module.css';
+import NavLink from '../../components/link/navlink';
 import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import UserContext from '../../Context';
-
+import getNavigation from '../../utils/navigation';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const Header = () => {
 
     const userData = useContext(UserContext);
     const { isLoggedIn, appUser } = userData;
+    const links = getNavigation(isLoggedIn, appUser);
 
     return (
-        <nav className="header">
+        <nav className={styles.container}>
             <Link to="/">
-                <img className="header__logo" src={logo} alt="logo" />
+                <img className={styles.logo} src={logo} alt="logo" />
             </Link>
 
-            {isLoggedIn
-                ?
-                <div className="header__search">
-                    <input type="text" className="header__searchInput" />
-                    <SearchIcon className="header__searchIcon" />
-                </div>
-                : <div className="header__search"></div>
-            }
 
-            <div className="header__nav">
-                <Link to="/login" className="header__link">
-                    <div className="header__option">
-                        <span>Sign In</span>
-                    </div>
-                </Link>
+            <div className={styles.search}>
+                <input type="text" className={styles['search-input']} />
+                <SearchIcon className={styles['search-icon']} />
+            </div>
 
-                <Link to="/register" className="header__link">
-                    <div className="header__option">
-                        <span>Register</span>
-                    </div>
-                </Link>
 
-                <Link to="/login" className="header__link">
-                    <div className="header__option">
-                        <span>Contact Us</span>
-                    </div>
-                </Link>
+            <div className={styles['nav-menu']}>
+
+                {
+                    links.map(nav => {
+                        return (
+                            <NavLink key={nav.title} to={nav.link} title={nav.title} />
+                        )
+                    })
+                }
             </div>
         </nav>
     )
