@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import HomePageGuest from './pages/home-guest';
 import LogInPage from './pages/login';
 import RegisterPage from './pages/register';
@@ -19,17 +19,22 @@ const Navigation = (props) => {
         })
     })
 
-    const { isLoggedIn, history } = useContext(UserContext)
+    const { isLoggedIn, appUser } = useContext(UserContext);
+    console.log(appUser);
 
     return firebaseInitialized !== false ? (
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={HomePageGuest} />
-
-                { !isLoggedIn ? <Route path="/login" component={LogInPage} /> : <Route path="/login" component={HomePageGuest} />}
-
-                <Route path="/register" component={RegisterPage} />
-                <Route path="/profile" component={ProfilePage} />
+                <Route path="/login">
+                    {!isLoggedIn ? <LogInPage /> : <Redirect to="/" />}
+                </Route>
+                <Route path="/register">
+                    {!isLoggedIn ? <RegisterPage /> : <Redirect to="/" />}
+                </Route>
+                <Route path="/profile">
+                    {isLoggedIn ? <ProfilePage /> : <Redirect to="/" />}
+                </Route>
 
             </Switch>
         </BrowserRouter>

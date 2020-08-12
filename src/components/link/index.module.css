@@ -1,0 +1,30 @@
+.form-simple {
+    font-size: small;
+    text-decoration: none;
+    color: black;
+}
+
+.form-simple:visited {
+    color: black;
+}
+.form-simple:hover {
+    text-decoration: underline;
+}
+
+.header {
+    color: white;
+    text-decoration: none;
+}
+
+.header-option {
+    display: flex;
+    font-size: 12px;
+    font-weight: 700;
+    align-items: center;
+    margin: 5px 15px;
+}
+
+.header:hover {
+    color: goldenrod;
+    transition: all 1s linear;
+}

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import SimpleLink from '../../components/links/simple-link';
+import CustomLink from '../../components/link';
 import FormControl from '../../components/form-control'
 import Title from '../../components/title'
 import PageLayout from "../layouts/page-layout";
@@ -74,7 +74,7 @@ const RegisterPage = (props) => {
                 <Button title="Register"
                     onClick={register} />
 
-                <SimpleLink title="Already registered? Log in here" to="/login" />
+                <CustomLink title="Already registered? Log in here" to="/login" styleType="form-simple" />
 
             </FormWrapper>
         </PageLayout>
