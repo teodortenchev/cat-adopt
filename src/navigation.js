@@ -4,6 +4,7 @@ import HomePageGuest from './pages/home-guest';
 import LogInPage from './pages/login';
 import RegisterPage from './pages/register';
 import ProfilePage from './pages/profile';
+import CatCreatePage from './pages/cats/cat-create';
 import { CircularProgress } from '@material-ui/core';
 import styles from './navigation.module.css';
 import firebase from './utils/firebase';
@@ -20,7 +21,6 @@ const Navigation = (props) => {
     })
 
     const { isLoggedIn, appUser } = useContext(UserContext);
-    console.log(appUser);
 
     return firebaseInitialized !== false ? (
         <BrowserRouter>
@@ -34,6 +34,9 @@ const Navigation = (props) => {
                 </Route>
                 <Route path="/profile">
                     {isLoggedIn ? <ProfilePage /> : <Redirect to="/" />}
+                </Route>
+                <Route path="/cat/create">
+                    {isLoggedIn ? <CatCreatePage /> : <Redirect to="/" />}
                 </Route>
 
             </Switch>
