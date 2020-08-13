@@ -35,7 +35,7 @@ const Navigation = (props) => {
                 <Route path="/profile">
                     {isLoggedIn ? <ProfilePage /> : <Redirect to="/" />}
                 </Route>
-                <Route path="/cat/create">
+                <Route path="/cats/create">
                     {isLoggedIn ? <CatCreatePage /> : <Redirect to="/" />}
                 </Route>
 
