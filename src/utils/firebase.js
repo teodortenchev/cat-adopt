@@ -13,7 +13,6 @@ const config = {
     measurementId: "G-9LV00FJRBQ"
 };
 
-
 class Firebase {
     constructor() {
         firebase.initializeApp(config);
@@ -36,16 +35,27 @@ class Firebase {
         })
     }
 
+    async createCat(name, age, story, breed, imageUrl) {
+        await this.db.collection("cats").add({
+            name: name,
+            age: age,
+            story: story,
+            breed: breed,
+            imageUrl: imageUrl,
+            CreationTime: new Date()
+        })
+    }
+
     isInitialized() {
-		return new Promise(resolve => {
-			this.auth.onAuthStateChanged(resolve)
-		})
+        return new Promise(resolve => {
+            this.auth.onAuthStateChanged(resolve)
+        })
     }
-    
+
     getCurrentUsername() {
-		return this.auth.currentUser && this.auth.currentUser.displayName
+        return this.auth.currentUser && this.auth.currentUser.displayName
     }
-    
+
 }
 
-export default new Firebase()
+export default new Firebase();
