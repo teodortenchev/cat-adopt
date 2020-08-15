@@ -1,13 +1,13 @@
-function getNavigation(isLoggedIn, appUser) {
+function getNavigation(isLoggedIn, isAdmin, appUser) {
 
     const authLinksUser = [
         {
-            title: "My Profile",
+            title: `Hello,${appUser.displayName}`,
             link: `/profile/${appUser && appUser.uid}`
         },
         {
             title: "Browse Kitties",
-            link: 'all-cats'
+            link: '/cats/all'
         },
         {
             title: "My Adoptions",
@@ -16,7 +16,24 @@ function getNavigation(isLoggedIn, appUser) {
     ];
 
     //TO DO: Will complete after roles are added. 
-    const authLinksAdmin = [];
+    const authLinksAdmin = [
+        {
+            title: "Browse Kitties",
+            link: '/cats/all'
+        },
+        {
+            title: "Add Cat",
+            link: '/cats/add'
+        },
+        {
+            title: "Adoption Requests",
+            link: `/requests/`
+        },
+        {
+            title: `Hello, ${appUser.displayName} (admin)`,
+            link: `/profile/${appUser.uid}`
+        }
+    ];
 
     const guestLinks = [
         {
@@ -29,10 +46,13 @@ function getNavigation(isLoggedIn, appUser) {
         },
         {
             title: "Browse Kitties",
-            link: 'all-cats'
+            link: '/cats/all'
         }
     ]
 
+    if (isAdmin) {
+        return authLinksAdmin;
+    }
     return isLoggedIn ? authLinksUser : guestLinks;
 }
 

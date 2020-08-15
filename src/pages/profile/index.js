@@ -1,28 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PageLayoutNoBG from '../layouts/page-layout-nobg'
 import firebase from '../../utils/firebase'
+import styles from './index.module.css';
+import UserContext from '../../Context';
+import Button from '@material-ui/core/Button';
 
 const ProfilePage = () => {
+    const { appUser } = useContext(UserContext);
+    console.log(appUser)
     return (
         <PageLayoutNoBG>
-            <div className="mx-auto w-11/12 md:w-2/4 py-8 px-4 md:px-8">
-                <div className="flex border flex-col items-center md:flex-row md:items-start border-blue-400 px-3 py-4">
-                    <div
-                        style={{
-                            background:
-                                `url(https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577268053/avatar-1-bitmoji_upgwhc.png)  no-repeat center center`,
-                            backgroundSize: "cover",
-                            height: "200px",
-                            width: "200px"
-                        }}
-                        className="border border-blue-300"
-                    ></div>
-                    <div className="md:pl-4">
-                        <h2 className="text-2xl font-semibold">Joe</h2>
-                        <h3 className="italic">plainoldjoe@gmail.com</h3>
+            <div className={styles.container}>
+                <div className={styles.picture}></div>
+                <div>
+
+                    <div className={styles.profileInfo}>
+                        <div><span className={styles.fieldName}>Name: </span>
+                            <span className={styles.fieldValue}>{appUser.displayName}</span></div>
+                        <div><span className={styles.fieldName}>Email: </span>
+                            <span className={styles.fieldValue}>{appUser.email}</span></div>
+                    </div>
+                    <div className={styles.buttonContainer}>
+                        <Button variant="contained" color="default" size="small" className={styles.button} href={`/profile/edit/${appUser.uid}`}>Update Profile</Button>
+                    </div>
+                    <div className={styles.buttonContainer}>
+                        <Button variant="contained" color="secondary" size="small" className={styles.button} onClick={(event) => firebase.logout()}>Sign Out</Button>
                     </div>
                 </div>
-                <button className="w-full py-3 bg-red-600 mt-4 text-white" onClick={(event) => firebase.logout()}>Sign out</button>
+
             </div>
         </PageLayoutNoBG>
     )

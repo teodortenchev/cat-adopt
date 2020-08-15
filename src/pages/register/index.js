@@ -6,7 +6,7 @@ import PageLayout from "../layouts/page-layout";
 import Button from '../../components/button/submit-button';
 import FormWrapper from '../../components/form-wrapper';
 import firebase from '../../utils/firebase';
-import styles from './index.module.css'
+import styles from './index.module.css';
 
 const RegisterPage = (props) => {
     const [email, setEmail] = useState('');
@@ -25,13 +25,12 @@ const RegisterPage = (props) => {
         }
         else {
             try {
-                await firebase.register(displayName, email, password)
+                await firebase.register(displayName, email, password);
                 props.history.push('/')
             } catch (error) {
                 setError(error.message);
             }
         }
-
     }
 
     const onChangeHandler = (event) => {
