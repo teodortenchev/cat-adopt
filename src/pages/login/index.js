@@ -57,8 +57,6 @@ const LogInPage = (props) => {
                 <CustomLink title="Forgot password" to="/passwordReset" styleType="form-simple" />
             </FormWrapper>
 
-
-
         </PageLayout >
     )
 }

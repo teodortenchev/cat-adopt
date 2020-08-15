@@ -16,14 +16,23 @@ const CatCreatePage = (props) => {
     const [age, setAge] = useState(0);
     const [story, setStory] = useState('');
     const [breed, setBreed] = useState('');
-    const [imageUrl, setImageUrl] = useState(defaultPicture);
+    const [imageUrl, setImageUrl] = useState('');
     const [error, setError] = useState(null)
     const history = useHistory();
 
     async function create() {
+
+        if (name === '') {
+            setError('Cat name must not be empty');
+            return;
+        }
+        if (imageUrl === '') {
+            setImageUrl(defaultPicture);
+        }
+
         try {
             await firebase.createCat(name, age, story, breed, imageUrl)
-            history.push('/');
+            history.push('/cats/all');
 
         } catch (error) {
             setError(error.message);
@@ -47,7 +56,7 @@ const CatCreatePage = (props) => {
             setBreed(value)
         }
         else if (name === 'imageUrl') {
-            imageUrl(value);
+            setImageUrl(value);
         }
     }
 

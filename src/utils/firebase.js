@@ -42,9 +42,48 @@ class Firebase {
             story: story,
             breed: breed,
             imageUrl: imageUrl,
-            CreationTime: new Date()
+            CreationTime: new Date(),
+            pendingAdoption: false,
+            adoptedBy: ''
         })
     }
+
+    async addBreed(name, description) {
+        await this.db.collection("breeds").add({
+            name,
+            description
+        })
+    }
+
+    async requestAdoption(catId, userId) {
+        alert('implement requestAdoption')
+    }
+
+    async approveAdoption(catId, userId) {
+        alert('implement approve adopt')
+    }
+
+    async rejectAdoption(catId, userId) {
+        alert('implement reject')
+
+    }
+
+    async sendMessage(userId, message) {
+        alert('implement send message')
+
+
+    }
+
+    async getMessages(userId) {
+        alert('getMessages')
+    }
+
+    async getAllCats() {
+        const snapshot = await this.db.collection('cats').get();
+
+        return snapshot;
+    }
+
 
     isInitialized() {
         return new Promise(resolve => {

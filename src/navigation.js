@@ -5,6 +5,7 @@ import LogInPage from './pages/login';
 import RegisterPage from './pages/register';
 import ProfilePage from './pages/profile';
 import CatCreatePage from './pages/cats/cat-create';
+import AllCatsPage from './pages/cats/allcats';
 import { CircularProgress } from '@material-ui/core';
 import styles from './navigation.module.css';
 import firebase from './utils/firebase';
@@ -20,7 +21,7 @@ const Navigation = (props) => {
         })
     })
 
-    const { isLoggedIn, appUser } = useContext(UserContext);
+    const { isLoggedIn, isAdmin } = useContext(UserContext);
 
     return firebaseInitialized !== false ? (
         <BrowserRouter>
@@ -35,10 +36,10 @@ const Navigation = (props) => {
                 <Route path="/profile">
                     {isLoggedIn ? <ProfilePage /> : <Redirect to="/" />}
                 </Route>
-                <Route path="/cats/create">
-                    {isLoggedIn ? <CatCreatePage /> : <Redirect to="/" />}
+                <Route path="/cats/add">
+                    {isAdmin ? <CatCreatePage /> : <Redirect to="/" />}
                 </Route>
-
+                <Route path="/cats/all" component={AllCatsPage} />
             </Switch>
         </BrowserRouter>
     ) : <div className={styles.loader}><CircularProgress size={100} /></div>
