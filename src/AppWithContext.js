@@ -11,7 +11,7 @@ const App = (props) => {
   const login = (user) => {
     setIsLoggedIn(true);
     setUser(user);
-    if(admins.includes(user.email)) {
+    if (admins.includes(user.email)) {
       setAdmin(true);
     }
   }
