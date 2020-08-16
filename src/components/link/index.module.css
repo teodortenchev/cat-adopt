@@ -4,6 +4,18 @@
     color: black;
 }
 
+.main-page {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+}
+.main-page:visited {
+    color: rgba(7, 121, 187, 0.589);
+}
+.main-page:hover {
+    color: rgba(7, 121, 187, 0.589);
+}
+
 .form-simple:visited {
     color: black;
 }
