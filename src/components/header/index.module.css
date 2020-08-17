@@ -15,8 +15,14 @@
 }
 
 .search-input {
-    width: 30%;
+    width: 10%;
+    transition: width 0.4s ease-in-out;
 }
+
+.search-input[type="text"]:focus {
+    width: 100%;
+}
+
 .search-icon {
     background-color: rgb(228, 21, 72);
 }
@@ -25,4 +31,3 @@
     display: flex;
     justify-content: space-evenly;
 }
-

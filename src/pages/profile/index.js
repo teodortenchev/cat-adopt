@@ -1,17 +1,22 @@
 import React, { useContext } from 'react';
-import PageLayoutNoBG from '../layouts/page-layout-nobg'
+import PageLayout from '../layouts/page-layout'
 import firebase from '../../utils/firebase'
 import styles from './index.module.css';
 import UserContext from '../../Context';
 import Button from '@material-ui/core/Button';
+import defaultPicture from '../../images/profilepic.jpg'
 
 const ProfilePage = () => {
     const { appUser } = useContext(UserContext);
-    console.log(appUser)
+
+    const picture = appUser.photoURL;
+
     return (
-        <PageLayoutNoBG>
+        <PageLayout>
             <div className={styles.container}>
-                <div className={styles.picture}></div>
+
+                <img className={styles.picture} src={picture || defaultPicture} alt="Profile Picture"/>
+
                 <div>
 
                     <div className={styles.profileInfo}>
@@ -29,7 +34,7 @@ const ProfilePage = () => {
                 </div>
 
             </div>
-        </PageLayoutNoBG>
+        </PageLayout>
     )
 };
 export default ProfilePage;

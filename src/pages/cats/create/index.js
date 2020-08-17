@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import FormControl from '../../../components/form-control'
 import Title from '../../../components/title'
-import PageLayout from "../../layouts/page-layout-nobg";
+import PageLayoutAdmin from "../../layouts/page-layout-admin";
 import Button from '../../../components/button/submit-button';
 import FormWrapper from '../../../components/form-wrapper';
 import styles from './index.module.css'
@@ -61,7 +61,7 @@ const CatCreatePage = (props) => {
     }
 
     return (
-        <PageLayout>
+        <PageLayoutAdmin>
             <FormWrapper>
                 <Title title="Add New Cat" />
                 <div className={styles.error}>{error}</div>
@@ -87,10 +87,9 @@ const CatCreatePage = (props) => {
                     value={imageUrl} placeholder="imageUrl" id="imageUrl"
                     onChange={(event) => onChangeHandler(event)} />
 
-                <Button title="Confirm"
-                    onClick={create} />
+                <Button title="Confirm" onClick={create} />
             </FormWrapper>
-        </PageLayout>
+        </PageLayoutAdmin>
     )
 }
 

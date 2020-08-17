@@ -1,8 +1,8 @@
 import React from 'react';
-import styles from './index.module.css';
+import styles from './index.module.css'
 import UpperNav from '../../../components/header';
 
-const PageLayoutNoBG = (props) => {
+const PageLayoutAdmin = (props) => {
     return (
         <div className={styles.wrapper}>
             <UpperNav />
@@ -13,4 +13,4 @@ const PageLayoutNoBG = (props) => {
     )
 }
 
-export default PageLayoutNoBG;
+export default PageLayoutAdmin;

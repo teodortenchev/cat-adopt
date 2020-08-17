@@ -10,7 +10,6 @@
 .picture {
     border-radius: 100px;
     margin: 10px;
-    background-image: url("../../images/profilepic.jpg");
     background-size: cover;
     height: 200px;
     width: 200px;

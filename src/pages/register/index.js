@@ -14,6 +14,7 @@ const RegisterPage = (props) => {
     const [rePassword, setRePassword] = useState('');
 
     const [displayName, setDisplayName] = useState('');
+    const [photoUrl, setphotoUrl] = useState('');
 
     const [error, setError] = useState(null);
 
@@ -25,8 +26,8 @@ const RegisterPage = (props) => {
         }
         else {
             try {
-                await firebase.register(displayName, email, password);
-                props.history.push('/')
+                await firebase.register(displayName, email, password, photoUrl);
+                props.history.push('/cats/all')
             } catch (error) {
                 setError(error.message);
             }
@@ -48,6 +49,9 @@ const RegisterPage = (props) => {
         else if (name === 'displayName') {
             setDisplayName(value)
         }
+        else if (name === 'photoUrl') {
+            setphotoUrl(value)
+        }
     }
 
     return (
@@ -55,19 +59,19 @@ const RegisterPage = (props) => {
             <FormWrapper>
                 <Title title="Sign Up" />
                 <div className={styles.error}>{error}</div>
-                <FormControl htmlFor="displayName" fieldName="DisplayName" type="text" name="displayName"
-                    value={displayName} placeholder="Your Name (e.g. John Doe)" id="displayName"
-                    onChange={(event) => onChangeHandler(event)} />
-                <FormControl htmlFor="userEmail" fieldName="Email" type="email" name="userEmail"
-                    value={email} placeholder="Email Address (e.g. mishka@gmail.com)" id="userEmail"
+                <FormControl id="displayName" name="displayName" label="First and Last Name (e.g. Thomas Joplin)" value={displayName} type="text"
                     onChange={(event) => onChangeHandler(event)} />
 
-                <FormControl htmlFor="userPassword" fieldName="Password" type="password" name="userPassword"
-                    value={password} placeholder="Password" id="userPassword"
+                <FormControl id="userEmail" name="userEmail" label="Email Address" value={email} type="email"
                     onChange={(event) => onChangeHandler(event)} />
 
-                <FormControl htmlFor="rePassword" fieldName="Confirm Password" type="password" name="rePassword"
-                    value={rePassword} placeholder="Confirm password" id="rePassword"
+                <FormControl id="userPassword" name="userPassword" label="Enter password" value={password} type="password"
+                    onChange={(event) => onChangeHandler(event)} />
+
+                <FormControl id="rePassword" name="rePassword" label="Confirm password" value={rePassword} type="password"
+                    onChange={(event) => onChangeHandler(event)} />
+
+                <FormControl id="photoUrl" name="photoUrl" label="Picture url" value={photoUrl} type="text"
                     onChange={(event) => onChangeHandler(event)} />
 
                 <Button title="Register"
