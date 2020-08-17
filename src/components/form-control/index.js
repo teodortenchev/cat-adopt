@@ -1,24 +1,15 @@
 import React from 'react';
 import styles from './index.module.css';
+import TextField from '@material-ui/core/TextField';
 
 
-const FormControl = ({ htmlFor, fieldName, type, name, value, placeholder, id, onChange }) => {
+const FormControl = ({ id, label, name, value, type, onChange }) => {
     return (
-
-        <label htmlFor={htmlFor} >
-            <input
-                type={type || "text"}
-                className={styles.input}
-                name={name}
-                value={value}
-                placeholder={placeholder}
-                id={id}
-                onChange={onChange}
-            />
-        </label>
-
+        <div className={styles.input}>
+            <TextField id={id} label={label} name={name} value={value}
+                type={type || "text"} onChange={onChange} fullWidth={true}/>
+        </div>
     )
 }
 
 export default FormControl;
-

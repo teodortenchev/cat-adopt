@@ -16,7 +16,7 @@ const LogInPage = (props) => {
 
     const onChangeHandler = (event) => {
         const { name, value } = event.currentTarget;
-
+        console.log(event.currentTarget)
         if (name === 'userEmail') {
             setEmail(value);
         }
@@ -28,7 +28,7 @@ const LogInPage = (props) => {
     async function login() {
         try {
             await firebase.login(email, password);
-            props.history.push('/');
+            props.history.push('/cats/all');
 
 
         } catch (error) {
@@ -41,16 +41,16 @@ const LogInPage = (props) => {
             <FormWrapper>
                 <Title title="Sign In" />
                 <div className={styles.error}>{error}</div>
-                <FormControl htmlFor="userEmail" fieldName="Email" type="email" name="userEmail"
-                    value={email} placeholder="Email Address" id="userEmail"
+                <FormControl id="userEmail" name="userEmail" label="Your Email" value={email} type="email"
                     onChange={(event) => onChangeHandler(event)} />
 
-                <FormControl htmlFor="userPassword" fieldName="Password" type="password" name="userPassword"
-                    value={password} placeholder="Password" id="userPassword"
+                <FormControl id="userPassword" name="userPassword" label="Your Password" value={password} type="password"
                     onChange={(event) => onChangeHandler(event)} />
 
                 <Button title="Sign In"
                     onClick={login} />
+
+
 
                 <CustomLink title="No Account? Sign up here" to="/register" styleType="form-simple" />
 

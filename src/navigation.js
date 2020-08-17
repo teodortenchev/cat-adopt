@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import HomePageGuest from './pages/home-guest';
+import HomePageGuest from './pages/home';
 import LogInPage from './pages/login';
 import RegisterPage from './pages/register';
 import ProfilePage from './pages/profile';

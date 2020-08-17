@@ -2,7 +2,7 @@ function getNavigation(isLoggedIn, isAdmin, appUser) {
 
     const authLinksUser = [
         {
-            title: `Hello,${appUser.displayName}`,
+            title: `Hello, ${appUser && appUser.displayName}`,
             link: `/profile/${appUser && appUser.uid}`
         },
         {
