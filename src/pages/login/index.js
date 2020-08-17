@@ -16,7 +16,6 @@ const LogInPage = (props) => {
 
     const onChangeHandler = (event) => {
         const { name, value } = event.currentTarget;
-        console.log(event.currentTarget)
         if (name === 'userEmail') {
             setEmail(value);
         }
