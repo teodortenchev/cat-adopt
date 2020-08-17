@@ -4,7 +4,6 @@ import './index.css';
 import Navigation from './navigation';
 import AppWithContext from './AppWithContext';
 
-
 ReactDOM.render(
   <React.StrictMode>
     <AppWithContext>
