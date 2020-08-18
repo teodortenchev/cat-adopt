@@ -32,7 +32,7 @@ const AllCatsPage = (props) => {
                 <Cube customLoading={loading} />
                 {cats.map(cat => (
                     <div className={styles.cat}>
-                        <CatCard name={cat.name} breed={cat.breed} story={cat.story} id={cat.id} />
+                        <CatCard name={cat.name} breed={cat.breed} story={cat.story} id={cat.id} image={cat.imageUrl} />
                     </div>
                 ))}
 
