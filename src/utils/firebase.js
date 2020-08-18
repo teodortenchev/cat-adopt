@@ -51,15 +51,15 @@ class Firebase {
     }
 
     async requestAdoption(catId, userId) {
-        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId })
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId }, { merge: true })
     }
 
     async approveAdoption(catId, userId) {
-        await this.db.collection('cats').doc(catId).set({ adoptedBy: userId, pendingAdoption: false })
+        await this.db.collection('cats').doc(catId).set({ adoptedBy: userId, pendingAdoption: false }, { merge: true })
     }
 
     async rejectAdoption(catId, userId) {
-        await this.db.collection('cats').doc(catId).set({ pendingAdoption: false, requestedBy: '' })
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: false, requestedBy: '' }, { merge: true })
     }
 
     async sendMessage(userId, message) {
