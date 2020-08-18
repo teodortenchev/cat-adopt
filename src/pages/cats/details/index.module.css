@@ -1,0 +1,21 @@
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.image {
+    height: auto;
+    width: 55%;
+    border-radius: 30px;
+    margin-top: 15px;
+}
+
+.content {
+    margin-left: 10px;
+    width: 40%;
+    font-size: 20px;
+}
+
+.button {
+    margin-top: 20px;
+}

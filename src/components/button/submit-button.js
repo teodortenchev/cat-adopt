@@ -3,10 +3,10 @@ import styles from './submit-button.module.css';
 import Button from '@material-ui/core/Button';
 
 
-const SubmitButton = ({ title, onClick }) => {
+const SubmitButton = ({ title, onClick, size, color, disabled }) => {
     return (
         <div className={styles.buttonContainer}>
-            <Button variant="contained" color="default" size="small" className={styles.button} onClick={onClick}>{title}</Button>
+            <Button variant="contained" color={color || "default"} size={size || "small"} className={styles.button} onClick={onClick} disabled={disabled || false}>{title}</Button>
         </div>
     )
 }
