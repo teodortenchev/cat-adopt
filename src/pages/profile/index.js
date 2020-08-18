@@ -15,7 +15,7 @@ const ProfilePage = () => {
         <PageLayout>
             <div className={styles.container}>
 
-                <img className={styles.picture} src={picture || defaultPicture} alt="Profile Picture"/>
+                <img className={styles.picture} src={picture || defaultPicture} alt={`${appUser.displayName}'s avatar`}/>
 
                 <div>
 

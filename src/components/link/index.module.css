@@ -6,18 +6,18 @@
 
 .main-page {
     text-decoration: none;
-    color: black;
+    color: rgba(9, 114, 175, 0.589);
     font-weight: 700;
 }
 .main-page:visited {
-    color: rgba(7, 121, 187, 0.589);
+    color: rgba(9, 114, 175, 0.589);
 }
 .main-page:hover {
-    color: rgba(7, 121, 187, 0.589);
+    color: rgba(187, 3, 79, 0.589);
 }
 
 .form-simple:visited {
-    color: black;
+    color:  rgba(7, 121, 187, 0.589);
 }
 .form-simple:hover {
     text-decoration: underline;

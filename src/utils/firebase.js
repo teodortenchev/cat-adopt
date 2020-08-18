@@ -45,46 +45,30 @@ class Firebase {
             imageUrl: imageUrl,
             CreationTime: new Date(),
             pendingAdoption: false,
+            requestedBy: '',
             adoptedBy: ''
         })
     }
 
-    async addBreed(name, description) {
-        await this.db.collection("breeds").add({
-            name,
-            description
-        })
-    }
-
     async requestAdoption(catId, userId) {
-        alert('implement requestAdoption')
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId })
     }
 
     async approveAdoption(catId, userId) {
-        alert('implement approve adopt')
+        await this.db.collection('cats').doc(catId).set({ adoptedBy: userId, pendingAdoption: false })
     }
 
     async rejectAdoption(catId, userId) {
-        alert('implement reject')
-
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: false, requestedBy: '' })
     }
 
     async sendMessage(userId, message) {
         alert('implement send message')
-
-
     }
 
     async getMessages(userId) {
         alert('getMessages')
     }
-
-    async getAllCats() {
-        const snapshot = await this.db.collection('cats').get();
-
-        return snapshot;
-    }
-
 
     isInitialized() {
         return new Promise(resolve => {
@@ -95,7 +79,6 @@ class Firebase {
     getCurrentUsername() {
         return this.auth.currentUser && this.auth.currentUser.displayName
     }
-
 }
 
 export default new Firebase();

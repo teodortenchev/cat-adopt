@@ -13,7 +13,7 @@ import firebase from '../../../utils/firebase';
 const CatCreatePage = (props) => {
 
     const [name, setDisplayName] = useState('');
-    const [age, setAge] = useState(0);
+    const [age, setAge] = useState('');
     const [story, setStory] = useState('');
     const [breed, setBreed] = useState('');
     const [imageUrl, setImageUrl] = useState('');
@@ -66,25 +66,20 @@ const CatCreatePage = (props) => {
                 <Title title="Add New Cat" />
                 <div className={styles.error}>{error}</div>
 
-                <FormControl htmlFor="name" fieldName="name" type="text" name="name"
-                    value={name} placeholder="Your Name (e.g. John Doe)" id="name"
+                <FormControl id="name" name="name" label="Kitty's Name" value={name} type="text"
+                    onChange={(event) => onChangeHandler(event)} />
+
+                <FormControl id="age" name="age" label="Age (months)" value={age} type="number"
                     onChange={(event) => onChangeHandler(event)} />
 
 
-                <FormControl htmlFor="age" fieldName="age" type="number" name="age"
-                    value={age} placeholder="Age in months" id="age"
+                <FormControl id="story" name="story" label="What's their story?" value={story} type="text"
+                    onChange={(event) => onChangeHandler(event)} multiline={true} rowsMax={10} />
+
+                <FormControl id="breed" name="breed" label="Breed" value={breed} type="text"
                     onChange={(event) => onChangeHandler(event)} />
 
-                <FormControl htmlFor="story" fieldName="story" type="text" name="story"
-                    value={story} placeholder="Story" id="story"
-                    onChange={(event) => onChangeHandler(event)} />
-
-                <FormControl htmlFor="breed" fieldName="breed" type="text" name="breed"
-                    value={breed} placeholder="breed" id="breed"
-                    onChange={(event) => onChangeHandler(event)} />
-
-                <FormControl htmlFor="imageUrl" fieldName="imageUrl" type="text" name="imageUrl"
-                    value={imageUrl} placeholder="imageUrl" id="imageUrl"
+                <FormControl id="imageUrl" name="imageUrl" label="Image Url" value={imageUrl} type="text"
                     onChange={(event) => onChangeHandler(event)} />
 
                 <Button title="Confirm" onClick={create} />
