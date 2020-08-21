@@ -9,15 +9,15 @@
     margin-bottom: 25px;
 }
 
-.approved {
+.Approved {
     border-color: rgb(117, 238, 47);
 }
 
-.rejected {
+.Rejected {
     border-color: red;
 }
 
-.pending {
+.Pending {
     border-color: rgb(7, 129, 211);
 }
 
@@ -30,12 +30,13 @@
 
 .info {
     margin: 5px 5px 5px 15px;
+    line-height: 26pt;
 }
 
-.status {
+.statusImage {
     width: 150px;
-    margin-left: 70px;
+    margin-left: auto;
 }
-.status:hover {
+.statusImage:hover {
     opacity: 90%;
 }

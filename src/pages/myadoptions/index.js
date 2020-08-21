@@ -24,9 +24,6 @@ const MyAdoptionsPage = (props) => {
         fetchData().then(setLoading(false));
     }, [id]);
 
-    console.log(cats);
-    console.log(id);
-
     return (
         <PageLayout>
             <ContentWrapper>
@@ -36,7 +33,7 @@ const MyAdoptionsPage = (props) => {
                     <Title title="Your Adoption Requests" />
                     {cats.map(cat => (
                         <div className={styles.cat} key={cat.id}>
-                            <AdoptionRow catName={cat.name} catPhoto={cat.imageUrl} />
+                            <AdoptionRow cat={cat} />
                         </div>
                     ))}
 

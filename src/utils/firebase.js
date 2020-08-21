@@ -36,7 +36,7 @@ class Firebase {
         })
     }
 
-    async createCat(name, age, story, breed, imageUrl) {
+    async createCat(name, age, story, breed, imageUrl, gender, medicalStatus) {
         await this.db.collection("cats").add({
             name: name,
             age: age,
@@ -46,7 +46,10 @@ class Firebase {
             CreationTime: new Date(),
             pendingAdoption: false,
             requestedBy: '',
-            adoptedBy: ''
+            adoptedBy: '',
+            adoptionStatus: 'Available',
+            gender: gender,
+            medicalStatus: medicalStatus
         })
     }
 

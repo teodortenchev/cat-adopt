@@ -1,0 +1,13 @@
+.container {
+    text-align: center;
+}
+
+.photo {
+    width: 70%;
+    height: auto;
+}
+
+.photo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
