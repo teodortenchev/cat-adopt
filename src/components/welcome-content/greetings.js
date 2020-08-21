@@ -50,4 +50,4 @@ const AdminGreeting = ({ user }) => {
     )
 }
 
-export { GuestGreeting, UserGreeting, AdminGreeting }
+export { GuestGreeting, UserGreeting, AdminGreeting };

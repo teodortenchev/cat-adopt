@@ -8,7 +8,7 @@ import CatCreatePage from './pages/cats/create';
 import AllCatsPage from './pages/cats/all';
 import CatDetails from './pages/cats/details';
 import AdoptionsPage from './pages/myadoptions';
-
+import CatEditPage from './pages/cats/edit'
 import { CircularProgress } from '@material-ui/core';
 import styles from './navigation.module.css';
 import firebase from './utils/firebase';
@@ -39,13 +39,19 @@ const Navigation = (props) => {
                 <Route path="/profile">
                     {isLoggedIn ? <ProfilePage /> : <Redirect to="/" />}
                 </Route>
-                <Route path="/adoptions/" component={AdoptionsPage} />
-
+                <Route path="/adoptions/">
+                    {isLoggedIn ? <AdoptionsPage /> : <Redirect to="/" />}
+                </Route>
+                <Route path="/cats/edit/:catId">
+                    {isAdmin ? <CatEditPage /> : <Redirect to="/" />}
+                </Route>
                 <Route path="/cats/add">
                     {isAdmin ? <CatCreatePage /> : <Redirect to="/" />}
                 </Route>
                 <Route path="/cats/all" component={AllCatsPage} />
                 <Route path="/cats/:catId" component={CatDetails} />
+
+
             </Switch>
         </BrowserRouter>
     ) : <div className={styles.loader}><CircularProgress size={100} /></div>

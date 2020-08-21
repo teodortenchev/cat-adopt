@@ -53,6 +53,23 @@ class Firebase {
         })
     }
 
+    async editCat(catId, name, age, story, breed, imageUrl, gender, medicalStatus) {
+        await this.db.collection('cats').doc(catId).set({
+            name: name,
+            age: age,
+            story: story,
+            breed: breed,
+            imageUrl: imageUrl,
+            CreationTime: new Date(),
+            pendingAdoption: false,
+            requestedBy: '',
+            adoptedBy: '',
+            adoptionStatus: 'Available',
+            gender: gender,
+            medicalStatus: medicalStatus
+        }, { merge: true })
+    }
+
     async requestAdoption(catId, userId) {
         await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId }, { merge: true })
     }

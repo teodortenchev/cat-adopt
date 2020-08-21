@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import CustomLink from '../../components/link';
-import FormControl from '../../components/form-control'
+import { FormControl}  from '../../components/form-control'
 import Title from '../../components/title'
 import PageLayout from "../layouts/page-layout";
 import Button from '../../components/button/submit-button';
