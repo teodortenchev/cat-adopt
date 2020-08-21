@@ -17,6 +17,9 @@ const CatCreatePage = (props) => {
     const [story, setStory] = useState('');
     const [breed, setBreed] = useState('');
     const [imageUrl, setImageUrl] = useState('');
+    const [gender, setGender] = useState('');
+    const [medicalStatus, setMedicalStatus] = useState('');
+
     const [error, setError] = useState(null)
     const history = useHistory();
 
@@ -31,7 +34,7 @@ const CatCreatePage = (props) => {
         }
 
         try {
-            await firebase.createCat(name, age, story, breed, imageUrl)
+            await firebase.createCat(name, age, story, breed, imageUrl, gender, medicalStatus)
             history.push('/cats/all');
 
         } catch (error) {
@@ -58,6 +61,12 @@ const CatCreatePage = (props) => {
         else if (name === 'imageUrl') {
             setImageUrl(value);
         }
+        else if (name === 'gender') {
+            setGender(value);
+        }
+        else if (name === 'medicalStatus') {
+            setMedicalStatus(value);
+        }
     }
 
     return (
@@ -72,11 +81,16 @@ const CatCreatePage = (props) => {
                 <FormControl id="age" name="age" label="Age (months)" value={age} type="number"
                     onChange={(event) => onChangeHandler(event)} />
 
+                <FormControl id="gender" name="gender" label="Gender" value={gender} type="text"
+                    onChange={(event) => onChangeHandler(event)} />
 
                 <FormControl id="story" name="story" label="What's their story?" value={story} type="text"
                     onChange={(event) => onChangeHandler(event)} multiline={true} rowsMax={10} />
 
                 <FormControl id="breed" name="breed" label="Breed" value={breed} type="text"
+                    onChange={(event) => onChangeHandler(event)} />
+
+                <FormControl id="medicalStatus" name="medicalStatus" label="Medical Status" value={medicalStatus} type="text"
                     onChange={(event) => onChangeHandler(event)} />
 
                 <FormControl id="imageUrl" name="imageUrl" label="Image Url" value={imageUrl} type="text"
