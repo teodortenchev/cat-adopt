@@ -12,14 +12,6 @@ import { Cube } from 'react-preloaders';
 
 const CatEditPage = (props) => {
 
-    // const [catName, setCatName] = useState('');
-    // const [age, setAge] = useState('');
-    // const [story, setStory] = useState('');
-    // const [breed, setBreed] = useState('');
-    // const [imageUrl, setImageUrl] = useState('');
-    // const [gender, setGender] = useState('');
-    // const [medicalStatus, setMedicalStatus] = useState('');
-
     const [error, setError] = useState(null)
     const history = useHistory();
 
