@@ -7,7 +7,8 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import defaultImage from '../../images/unknownkitty.png'
+import defaultImage from '../../images/unknownkitty.png';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
   root: {
@@ -21,24 +22,26 @@ export default function CatCard({ image, name, breed, story, id, isAdmin }) {
   return (
     <Card className={classes.root}>
       <CardActionArea>
-        <CardMedia
-          component="img"
-          alt={name}
-          height="250"
-          image={image || defaultImage}
-          title={name}
-        />
+        <Link to={`/cats/${id}`}>
+          <CardMedia
+            component="img"
+            alt={name}
+            height="250"
+            image={image || defaultImage}
+            title={name}
+          />
+        </Link>
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {name} ({breed})
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {`${story.substring(0,100)} [..]`}
+            {`${story.substring(0, 100)} [..]`}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="secondary">
+        <Button size="small" color="secondary" href={`/cats/edit/${id}`}>
           Edit
         </Button>
         <Button size="small" color="primary" href={`/cats/${id}`}>

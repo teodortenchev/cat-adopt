@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import FormControl from '../../../components/form-control'
+import { FormControl } from '../../../components/form-control'
 import Title from '../../../components/title'
 import PageLayoutAdmin from "../../layouts/page-layout-admin";
 import Button from '../../../components/button/submit-button';

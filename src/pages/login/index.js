@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import FormControl from '../../components/form-control'
+import { FormControl}  from '../../components/form-control'
 import Title from '../../components/title'
 import PageLayout from "../layouts/page-layout";
 import FormWrapper from '../../components/form-wrapper';

@@ -7,9 +7,19 @@ const FormControl = ({ id, label, name, value, type, onChange, multiline, rowsMa
     return (
         <div className={styles.input}>
             <TextField id={id} label={label} name={name} value={value}
-                type={type || "text"} onChange={onChange} fullWidth={true} multiline={multiline || false} rowsMax={rowsMax || 1} />
+                type={type || "text"} onChange={onChange} fullWidth={true} multiline={multiline || false}
+                rowsMax={rowsMax || 1} />
         </div>
     )
 }
 
-export default FormControl;
+const FormUncontrolled = ({ id, label, name, defaultValue, type, onChange, multiline, rowsMax }) => {
+    return (
+        <div className={styles.input}>
+            <TextField id={id} label={label} name={name} defaultValue={defaultValue}
+                type={type || "text"} onChange={onChange} fullWidth={true} multiline={multiline || false}
+                rowsMax={rowsMax || 1} />
+        </div>
+    )
+}
+export { FormControl, FormUncontrolled };

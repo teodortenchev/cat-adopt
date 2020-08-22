@@ -58,9 +58,6 @@ const CatDetailsPage = (props) => {
     return (
         <PageLayout>
             <ContentWrapper>
-
-
-
                 <div className={styles.container}>
                     <img src={cat.imageUrl} className={styles.image} alt={cat.name} />
                     <div className={styles.content}>
