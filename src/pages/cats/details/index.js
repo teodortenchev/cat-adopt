@@ -14,7 +14,7 @@ const CatDetailsPage = (props) => {
 
     const [cat, setCat] = useState(null);
     const params = useParams();
-    const { isLoggedIn, isAdmin, appUser } = useContext(UserContext);
+    const { isLoggedIn, appUser } = useContext(UserContext);
 
     const getData = useCallback(async () => {
         const id = params.catId;
