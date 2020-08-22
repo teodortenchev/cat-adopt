@@ -22,7 +22,7 @@ const MyAdoptionsPage = (props) => {
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         fetchData().then(setLoading(false));
-    }, [id]);
+    }, [cats]);
 
     return (
         <PageLayout>

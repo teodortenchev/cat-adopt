@@ -20,7 +20,7 @@ const PendingAdoptionsPage = (props) => {
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         fetchData().then(setLoading(false));
-    }, []);
+    }, [cats]);
 
     async function approve(catId) {
         await firebase.approveAdoption(catId);

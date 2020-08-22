@@ -119,7 +119,7 @@ class Firebase {
     }
 
     async requestAdoption(catId, userId, userName) {
-        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId, adoptedBy: userName }, { merge: true })
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId, adoptedBy: userName, adoptionStatus: 'Pending' }, { merge: true })
     }
 
     async approveAdoption(catId) {
