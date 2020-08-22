@@ -8,7 +8,7 @@ import CatCreatePage from './pages/cats/create';
 import AllCatsPage from './pages/cats/all';
 import CatDetails from './pages/cats/details';
 import AdoptionsPage from './pages/myadoptions';
-import CatEditPage from './pages/cats/edit'
+import CatEditPage from './pages/cats/edit';
 import { CircularProgress } from '@material-ui/core';
 import styles from './navigation.module.css';
 import firebase from './utils/firebase';
