@@ -14,7 +14,7 @@ const CatDetailsPage = (props) => {
 
     const [cat, setCat] = useState(null);
     const params = useParams();
-    const { isLoggedIn, isAdmin, appUser } = useContext(UserContext);
+    const { isLoggedIn, appUser } = useContext(UserContext);
 
     const getData = useCallback(async () => {
         const id = params.catId;
@@ -35,8 +35,8 @@ const CatDetailsPage = (props) => {
     async function requestAdoption() {
 
         try {
-            await firebase.requestAdoption(cat.id, appUser.uid);
-            props.history.push('/cats/all');
+            await firebase.requestAdoption(cat.id, appUser.uid, appUser.displayName);
+            props.history.push('/adoptions');
 
         } catch (error) {
             console.log(error);
@@ -67,10 +67,9 @@ const CatDetailsPage = (props) => {
                         </div>
                     </div>
                     <div className={styles.button}>
-                        <SubmitButton className={styles.button} title="Adopt Me" size="large" color="secondary" disabled={!isLoggedIn || !isAdmin ? false : true}
+                        <SubmitButton className={styles.button} title="Adopt Me" size="large" color="secondary" disabled={isLoggedIn ? false : true}
                             onClick={requestAdoption} />
                         {isLoggedIn ? "" : "(sign in to request for adoption)"}
-                        {isAdmin ? "" : "(Admins can't request adoption)"}
                     </div>
                 </div>
 

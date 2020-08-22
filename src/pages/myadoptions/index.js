@@ -18,7 +18,7 @@ const MyAdoptionsPage = (props) => {
     useEffect(() => {
         const fetchData = async () => {
             const db = firebase.db;
-            const data = await db.collection("cats").where("pendingAdoption", "==", true).where("requestedBy", "==", id).get().then(setLoading(true));
+            const data = await db.collection("cats").where("requestedBy", "==", id).get().then(setLoading(true));
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         fetchData().then(setLoading(false));
@@ -28,17 +28,15 @@ const MyAdoptionsPage = (props) => {
         <PageLayout>
             <ContentWrapper>
                 <Cube customLoading={loading} />
-
                 <div className={styles.container}>
                     <Title title="Your Adoption Requests" />
-                    {cats.map(cat => (
-                        <div className={styles.cat} key={cat.id}>
-                            <AdoptionRow cat={cat} />
-                        </div>
-                    ))}
-
+                    {cats.length === 0 ? <div className={styles.empty}><h4>You have no pending adoption requests.</h4></div>
+                        : cats.map(cat => (
+                            <div className={styles.cat} key={cat.id}>
+                                <AdoptionRow cat={cat} />
+                            </div>
+                        ))}
                 </div>
-
             </ContentWrapper>
         </PageLayout>
     )

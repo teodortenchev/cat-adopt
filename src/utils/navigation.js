@@ -11,7 +11,7 @@ function getNavigation(isLoggedIn, isAdmin, appUser) {
         },
         {
             title: "My Adoptions",
-            link: `/adoptions/${appUser && appUser.uid}`
+            link: '/adoptions/'
         }
     ];
 

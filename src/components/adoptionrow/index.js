@@ -27,7 +27,7 @@ const CatRow = ({ cat }) => {
                 <strong>{cat.name || 'Kitty'}</strong> <br />
                 <strong>Gender:</strong> {cat.gender} <br />
                 <strong>Medical Status:</strong> {cat.medicalStatus} <br />
-                <strong>Adoption Status: </strong> {cat.status || 'Pending'}
+                <strong>Adoption Status: </strong> {cat.adoptionStatus || 'Pending'}
             </div>
 
             <img className={styles.statusImage} alt={cat.status} src={approvalImage} />

@@ -2,6 +2,7 @@ import React from 'react';
 import SimpleLink from '../../components/link/';
 import Title from '../../components/title';
 import styles from './greetings.module.css';
+import WarningIcon from '@material-ui/icons/Warning';
 
 const GuestGreeting = () => {
     return (
@@ -35,16 +36,20 @@ const UserGreeting = ({ user }) => {
     )
 }
 
-const AdminGreeting = ({ user }) => {
+const AdminGreeting = ({ user, event, event2 }) => {
     return (
         <div className={styles.text}>
             <Title title={`Welcome back, ${user.displayName} (admin)`} />
             <p>There are [PLACEHOLDER] kitties up for adoption and [PLACEHOLDER] pending requests.</p>
             <h3>Available Actions</h3>
             <div className={styles.links}>
-            <SimpleLink title="Add Cat For Adoption" styleType="main-page" to="/cats/add" />
+                <SimpleLink title="Add Cat For Adoption" styleType="main-page" to="/cats/add" />
                 <SimpleLink title="Review Adoption Requests" styleType="main-page" to="/requests/" />
                 <SimpleLink title="Check or Update Your Profile" styleType="main-page" to={`/profile/${user && user.uid}`} />
+                <WarningIcon /><SimpleLink to="/cats/all" title="Reset APP" styleType="main-page-test" onClick={event} />
+                <SimpleLink to="/cats/all" title="Simulate ALL Adopted" styleType="main-page-test" onClick={event2} />
+
+
             </div>
         </div>
     )

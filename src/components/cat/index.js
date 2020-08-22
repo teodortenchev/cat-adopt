@@ -31,23 +31,26 @@ export default function CatCard({ image, name, breed, story, id, isAdmin }) {
             title={name}
           />
         </Link>
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {name} ({breed})
+        <Link to={`/cats/${id}`} style={{ textDecoration: "none", color: "inherit" }}>
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {name} ({breed})
           </Typography>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {`${story.substring(0, 100)} [..]`}
-          </Typography>
-        </CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              {`${story.substring(0, 100)} [read more...]`}
+            </Typography>
+          </CardContent>
+        </Link>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="secondary" href={`/cats/edit/${id}`}>
+        <Button size="small" color="secondary" href={`/cats/edit/${id}`} style={{ display: isAdmin ? "inline" : "none" }}>
           Edit
         </Button>
         <Button size="small" color="primary" href={`/cats/${id}`}>
           More Details
         </Button>
       </CardActions>
-    </Card>
+
+    </Card >
   );
 }
