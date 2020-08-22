@@ -2,8 +2,8 @@ function getNavigation(isLoggedIn, isAdmin, appUser) {
 
     const authLinksUser = [
         {
-            title: `Hello, ${appUser && appUser.displayName}`,
-            link: `/profile/${appUser && appUser.uid}`
+            title: `Hello, ${appUser.displayName || 'friend!'}`,
+            link: `/profile/`
         },
         {
             title: "Browse Kitties",
@@ -31,7 +31,7 @@ function getNavigation(isLoggedIn, isAdmin, appUser) {
         },
         {
             title: `Hello, ${appUser.displayName} (admin)`,
-            link: `/profile/${appUser.uid}`
+            link: `/profile/`
         }
     ];
 
