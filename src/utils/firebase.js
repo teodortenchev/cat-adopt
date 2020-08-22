@@ -2,6 +2,7 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 
+
 const config = {
     apiKey: "AIzaSyB7v6SJwuYkFGhC_D4hRe7YKPX8hZ5Kx1g",
     authDomain: "catfur-store.firebaseapp.com",
@@ -42,7 +43,6 @@ class Firebase {
     }
 
     async editUser(name, email, photoUrl) {
-        console.log("hi")
         await this.auth.currentUser.updateProfile({
             displayName: name,
             photoURL: photoUrl,
@@ -61,9 +61,43 @@ class Firebase {
             pendingAdoption: false,
             requestedBy: '',
             adoptedBy: '',
-            adoptionStatus: 'Available',
+            adoptionStatus: '',
             gender: gender,
             medicalStatus: medicalStatus
+        })
+    }
+
+    async resetCats() {
+        console.log('---> Cat DB Reset Initiated');
+
+        const collection = firebase.firestore().collection("cats");
+
+        collection.get().then(response => {
+            let batch = firebase.firestore().batch()
+            response.docs.forEach((doc) => {
+                const docRef = firebase.firestore().collection("cats").doc(doc.id)
+                batch.update(docRef, { pendingAdoption: false, adoptedBy: '', requestedBy: '', adoptionStatus: '' })
+            })
+            batch.commit().then(() => {
+                console.log(`====> updated all documents inside :Cats:`)
+            })
+        })
+    }
+
+    async hideCats() {
+        console.log('---> Simulate All Adopted');
+
+        const collection = firebase.firestore().collection("cats");
+
+        collection.get().then(response => {
+            let batch = firebase.firestore().batch()
+            response.docs.forEach((doc) => {
+                const docRef = firebase.firestore().collection("cats").doc(doc.id)
+                batch.update(docRef, { pendingAdoption: true })
+            })
+            batch.commit().then(() => {
+                console.log(`====> updated all documents inside :Cats:`)
+            })
         })
     }
 
@@ -84,16 +118,16 @@ class Firebase {
         }, { merge: true })
     }
 
-    async requestAdoption(catId, userId) {
-        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId }, { merge: true })
+    async requestAdoption(catId, userId, userName) {
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId, adoptedBy: userName }, { merge: true })
     }
 
-    async approveAdoption(catId, userId) {
-        await this.db.collection('cats').doc(catId).set({ adoptedBy: userId, pendingAdoption: false }, { merge: true })
+    async approveAdoption(catId) {
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: false, adoptionStatus: 'Approved' }, { merge: true })
     }
 
-    async rejectAdoption(catId, userId) {
-        await this.db.collection('cats').doc(catId).set({ pendingAdoption: false, requestedBy: '' }, { merge: true })
+    async rejectAdoption(catId) {
+        await this.db.collection('cats').doc(catId).set({ pendingAdoption: false, requestedBy: '', adoptedBy: '', adoptionStatus: 'Available' }, { merge: true })
     }
 
     async sendMessage(userId, message) {

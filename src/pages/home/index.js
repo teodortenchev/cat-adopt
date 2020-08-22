@@ -3,6 +3,7 @@ import PageLayout from "../layouts/page-layout";
 import styles from './index.module.css';
 import WelcomeContent from '../../components/welcome-content';
 import UserContext from '../../Context';
+import firebase from '../../utils/firebase'
 
 const HomePage = () => {
 
@@ -11,7 +12,7 @@ const HomePage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
-                <WelcomeContent isAdmin={isAdmin} isLoggedIn={isLoggedIn} appUser={appUser} />
+                <WelcomeContent isAdmin={isAdmin} isLoggedIn={isLoggedIn} appUser={appUser} event={firebase.resetCats} event2={firebase.hideCats} />
             </div>
         </PageLayout>
     )
