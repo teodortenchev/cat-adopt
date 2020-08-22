@@ -11,7 +11,7 @@ import UserContext from '../../../Context';
 
 const AllCatsPage = () => {
 
-    const [cats, setCats] = useState([]);
+    const [cats, setCats] = useState('');
     const { isAdmin } = useContext(UserContext);
 
     useEffect(() => {
@@ -21,7 +21,7 @@ const AllCatsPage = () => {
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         fetchData();
-    }, []);
+    }, [cats]);
 
 
     if (!cats) {

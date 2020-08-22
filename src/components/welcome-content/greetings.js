@@ -30,7 +30,7 @@ const UserGreeting = ({ user }) => {
             <h2>Available Actions</h2>
             <div className={styles.links}>
                 <SimpleLink title="Find Your Purrfect Companion" styleType="main-page" to="/cats/all" />
-                <SimpleLink title="Check or Update Your Profile" styleType="main-page" to={`/profile/${user && user.uid}`} />
+                <SimpleLink title="Check or Update Your Profile" styleType="main-page" to={'/profile/'} />
             </div>
         </div>
     )
@@ -45,7 +45,7 @@ const AdminGreeting = ({ user, event, event2 }) => {
             <div className={styles.links}>
                 <SimpleLink title="Add Cat For Adoption" styleType="main-page" to="/cats/add" />
                 <SimpleLink title="Review Adoption Requests" styleType="main-page" to="/requests/" />
-                <SimpleLink title="Check or Update Your Profile" styleType="main-page" to={`/profile/${user && user.uid}`} />
+                <SimpleLink title="Check or Update Your Profile" styleType="main-page" to={'/profile/'} />
                 <WarningIcon /><SimpleLink to="/cats/all" title="Reset APP" styleType="main-page-test" onClick={event} />
                 <SimpleLink to="/cats/all" title="Simulate ALL Adopted" styleType="main-page-test" onClick={event2} />
 
