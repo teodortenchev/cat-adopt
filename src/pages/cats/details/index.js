@@ -14,7 +14,7 @@ const CatDetailsPage = (props) => {
 
     const [cat, setCat] = useState(null);
     const params = useParams();
-    const { isLoggedIn, appUser } = useContext(UserContext);
+    const { isLoggedIn, isAdmin, appUser } = useContext(UserContext);
 
     const getData = useCallback(async () => {
         const id = params.catId;
@@ -58,17 +58,20 @@ const CatDetailsPage = (props) => {
     return (
         <PageLayout>
             <ContentWrapper>
-                <div className={styles.container}>
-                    <img src={cat.imageUrl} className={styles.image} alt={cat.name} />
-                    <div className={styles.content}>
-                        <p>Hello, my name is <strong>{cat.name}</strong>. A {cat.gender} {cat.breed.toLowerCase()}. I am {cat.age} months old and here is my story:</p>
-                        <p><i>{cat.story}</i></p>
+                <div className={styles.wrap}>
+                    <div className={styles.container}>
+                        <img src={cat.imageUrl} className={styles.image} alt={cat.name} />
+                        <div className={styles.content}>
+                            <p>Hello, my name is <strong>{cat.name}</strong>. A {cat.gender} {cat.breed.toLowerCase()}. I am {cat.age} months old and here is my story:</p>
+                            <p><i>{cat.story}</i></p>
+                        </div>
                     </div>
-                </div>
-                <div className={styles.button}>
-                    <SubmitButton className={styles.button} title="Adopt Me" size="large" color="secondary" disabled={isLoggedIn ? false : true}
-                        onClick={requestAdoption} />
-                    {isLoggedIn ? "" : "(sign in to request for adoption)"}
+                    <div className={styles.button}>
+                        <SubmitButton className={styles.button} title="Adopt Me" size="large" color="secondary" disabled={!isLoggedIn || !isAdmin ? false : true}
+                            onClick={requestAdoption} />
+                        {isLoggedIn ? "" : "(sign in to request for adoption)"}
+                        {isAdmin ? "" : "(Admins can't request adoption)"}
+                    </div>
                 </div>
 
 

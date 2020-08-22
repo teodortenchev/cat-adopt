@@ -14,6 +14,7 @@ import { CircularProgress } from '@material-ui/core';
 import styles from './navigation.module.css';
 import firebase from './utils/firebase';
 import UserContext from './Context';
+import ErrorPage from './pages/error';
 
 const Navigation = (props) => {
 
@@ -62,6 +63,8 @@ const Navigation = (props) => {
 
                 <Route path="/cats/all" component={AllCatsPage} />
                 <Route path="/cats/:catId" component={CatDetails} />
+
+                <Route component={ErrorPage} />
 
 
             </Switch>

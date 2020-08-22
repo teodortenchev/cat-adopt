@@ -27,16 +27,18 @@ const AllCatsPage = () => {
     return (
         <PageLayout>
             <ContentWrapper>
-                <div className={styles.title}>
-                    <Title title="Available for Adoption" />
-                </div>
-                <Cube customLoading={loading} />
-                {cats.length === 0 ? <AllKittiesGone /> : cats.map(cat => (
-                    <div className={styles.cat} key={cat.id}>
-                        <CatCard name={cat.name} breed={cat.breed} story={cat.story} id={cat.id} image={cat.imageUrl} />
+                <div className={styles.container}>
+                    <div className={styles.title}>
+                        <Title title="Available for Adoption" />
                     </div>
-                ))}
+                    <Cube customLoading={loading} />
+                    {cats.length === 0 ? <AllKittiesGone /> : cats.map(cat => (
+                        <div className={styles.cat} key={cat.id}>
+                            <CatCard name={cat.name} breed={cat.breed} story={cat.story} id={cat.id} image={cat.imageUrl} />
+                        </div>
+                    ))}
 
+                </div>
 
             </ContentWrapper>
         </PageLayout>
