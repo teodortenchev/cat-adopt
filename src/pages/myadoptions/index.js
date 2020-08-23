@@ -16,13 +16,16 @@ const MyAdoptionsPage = (props) => {
     const id = appUser.uid;
 
     useEffect(() => {
+        console.log("i am called from my adoptions");
         const fetchData = async () => {
             const db = firebase.db;
-            const data = await db.collection("cats").where("requestedBy", "==", id).get().then(setLoading(true));
+            const data = await db.collection("cats").where("requestedBy", "==", id).get();
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
-        fetchData().then(setLoading(false));
-    }, [cats]);
+        if (loading === true) {
+            fetchData().then(setLoading(false));
+        }
+    }, [cats, loading]);
 
     return (
         <PageLayout>

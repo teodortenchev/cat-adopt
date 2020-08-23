@@ -11,26 +11,27 @@ import UserContext from '../../../Context';
 
 const AllCatsPage = () => {
 
-    const [cats, setCats] = useState(null);
+    const [cats, setCats] = useState([]);
+    const [loading, setLoading] = useState(true);
+
     const { isAdmin } = useContext(UserContext);
 
     useEffect(() => {
+        console.log("i am called from all cats page");
         const fetchData = async () => {
             const db = firebase.db;
             const data = await db.collection("cats").where("pendingAdoption", "==", false).get();
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
-        fetchData();
-    }, [cats]);
-
-
-    if (!cats) {
-        return <Cube customLoading={true} />
-    }
+        if (loading === true) {
+            fetchData().then(setLoading(false));
+        }
+    }, [cats, loading]);
 
     return (
         <PageLayout>
             <ContentWrapper>
+                <Cube customLoading={loading} />
                 <div className={styles.container}>
                     {cats.length > 0 ? <div className={styles.title}>
                         <Title title="Available for Adoption" />

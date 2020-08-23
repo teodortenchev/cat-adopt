@@ -44,9 +44,8 @@ const CatDetailsPage = (props) => {
 
     }
 
-
-
     useEffect(() => {
+        console.log("I am called from cat details")
         getData()
     }, [getData])
 

@@ -4,13 +4,14 @@ import "firebase/firestore";
 
 
 const config = {
-    apiKey: "AIzaSyByEyKAtes6KyOzzfcGIp_HYezOK24gY1s",
-    authDomain: "adopt-a-cat-44dbd.firebaseapp.com",
-    databaseURL: "https://adopt-a-cat-44dbd.firebaseio.com",
-    projectId: "adopt-a-cat-44dbd",
-    storageBucket: "adopt-a-cat-44dbd.appspot.com",
-    messagingSenderId: "96345284186",
-    appId: "1:96345284186:web:a4923ab837635777f20263"
+    apiKey: "AIzaSyB7v6SJwuYkFGhC_D4hRe7YKPX8hZ5Kx1g",
+    authDomain: "catfur-store.firebaseapp.com",
+    databaseURL: "https://catfur-store.firebaseio.com",
+    projectId: "catfur-store",
+    storageBucket: "catfur-store.appspot.com",
+    messagingSenderId: "113960966018",
+    appId: "1:113960966018:web:97afa18c6212b25e38619b",
+    measurementId: "G-9LV00FJRBQ"
 };
 
 class Firebase {

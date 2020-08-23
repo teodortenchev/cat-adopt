@@ -13,14 +13,17 @@ const PendingAdoptionsPage = (props) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        console.log("I am called from adoption requests")
         const fetchData = async () => {
             const db = firebase.db;
             const data = await db.collection("cats").where("pendingAdoption", "==", true)
-                .where("adoptionStatus", "==", "Pending").get().then(setLoading(true));
+                .where("adoptionStatus", "==", "Pending").get();
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
-        fetchData().then(setLoading(false));
-    }, [cats]);
+        if (loading === true) {
+            fetchData().then(setLoading(false));
+        }
+    }, [cats, loading]);
 
     async function approve(catId) {
         await firebase.approveAdoption(catId);
