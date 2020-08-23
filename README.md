@@ -43,7 +43,7 @@ new app to it on firebase.
 
 -   Can view the home page;
 
--   Browse animals available for adoption;
+-   Browse cats available for adoption;
 
 -   Login / Register;
 
@@ -51,7 +51,7 @@ new app to it on firebase.
 
 -   Home page with available actions;
 
--   Browse animals available for adoption;
+-   Browse cats available for adoption;
 
 -   Request adoption;
 
@@ -67,7 +67,9 @@ new app to it on firebase.
 
 -   Home page with available actions (admin specific);
 
--   Browse animals available for adoption;
+-   Browse cats available for adoption;
+
+-   Edit each cat available for adoption;
 
 -   Review pending adoptions in **Adoption Requests**
 
