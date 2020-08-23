@@ -93,7 +93,7 @@ class Firebase {
             let batch = firebase.firestore().batch()
             response.docs.forEach((doc) => {
                 const docRef = firebase.firestore().collection("cats").doc(doc.id)
-                batch.update(docRef, { pendingAdoption: true })
+                batch.update(docRef, { pendingAdoption: true, adoptedBy: '', requestedBy: '', adoptionStatus: '' })
             })
             batch.commit().then(() => {
                 console.log(`====> updated all documents inside :Cats:`)
@@ -112,14 +112,15 @@ class Firebase {
             pendingAdoption: false,
             requestedBy: '',
             adoptedBy: '',
-            adoptionStatus: 'Available',
+            adoptionStatus: '',
             gender: gender,
             medicalStatus: medicalStatus
         }, { merge: true })
     }
 
     async requestAdoption(catId, userId, userName) {
-        await this.db.collection('cats').doc(catId).set({ pendingAdoption: true, requestedBy: userId, adoptedBy: userName, adoptionStatus: 'Pending' }, { merge: true })
+        await this.db.collection('cats').doc(catId)
+            .set({ pendingAdoption: true, requestedBy: userId, adoptedBy: userName, adoptionStatus: 'Pending' }, { merge: true })
     }
 
     async approveAdoption(catId) {

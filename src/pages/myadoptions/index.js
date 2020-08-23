@@ -25,7 +25,7 @@ const MyAdoptionsPage = (props) => {
         if (loading === true) {
             fetchData().then(setLoading(false));
         }
-    }, [cats, loading]);
+    }, [cats, loading, id]);
 
     return (
         <PageLayout>

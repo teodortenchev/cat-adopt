@@ -20,7 +20,8 @@ const AllCatsPage = () => {
         console.log("i am called from all cats page");
         const fetchData = async () => {
             const db = firebase.db;
-            const data = await db.collection("cats").where("pendingAdoption", "==", false).get();
+            const data = await db.collection("cats").where("pendingAdoption", "==", false)
+                .where("adoptionStatus", "in", ["", "Rejected"]).get();
             setCats(data.docs.map(doc => ({ ...doc.data(), id: doc.id })));
         };
         if (loading === true) {

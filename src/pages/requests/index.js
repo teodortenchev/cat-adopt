@@ -27,13 +27,13 @@ const PendingAdoptionsPage = (props) => {
 
     async function approve(catId) {
         await firebase.approveAdoption(catId);
+        setLoading(true);
         console.log("APPROVED")
     }
     async function reject(catId, userId) {
         await firebase.rejectAdoption(catId, userId);
         console.log("REJECTED")
-
-
+        setLoading(true);
     }
 
     return (
