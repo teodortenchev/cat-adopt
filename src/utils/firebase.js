@@ -111,7 +111,7 @@ class Firebase {
             CreationTime: new Date(),
             pendingAdoption: false,
             requestedBy: '',
-            adoptedBy: '',
+            adoptedBy:  '',
             adoptionStatus: '',
             gender: gender,
             medicalStatus: medicalStatus

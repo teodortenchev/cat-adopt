@@ -30,13 +30,6 @@ npm install
 npm start
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-### Adding your own firestore config
-
-You will need to add your own firestore db config to the app in order to use it.
-You can do so in src -\> utils -\> firebase.js. Replace the values inside the
-config variable with yours. You get them after creating a firestore and adding a
-new app to it on firebase.
-
 ## Functionality
 
 ### Public part (guest)
@@ -63,42 +56,12 @@ new app to it on firebase.
 
 -   Logout;
 
-### Private Part (ADMIN)
-
--   Home page with available actions (admin specific);
-
--   Browse animals available for adoption;
-
--   Review pending adoptions in **Adoption Requests**
-
--   Approve/Reject adoptions
-
--   Profile page;
-
--   Edit user profile;
-
--   Logout;
-
 ### Unauthorized 
 
--   Custom error page for unauthorized access or whenever a wrong URL is typed
-    in the address bar
+-   Custom error page for unathorized access or whenever a wrong url is typed in
+    the address bar
 
 ## Granting admin access
 
 To gain admin access add your registered email address in src -\> utils -\>
 admin.js
-
-## Resetting the app
-
-I’ve included functionality for resetting the app to the default state.
-
-### Reset APP
-
-Use this if you already added some cats for adoption and approved / rejected
-some adoptions. This will mark all cats as available for adoption and display
-them back in the **Browse Kitties** page.
-
-### Simulate ALL Adopted
-
-Use this if you already added some cats and want to mark them all as adopted.
