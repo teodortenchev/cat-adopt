@@ -9,6 +9,7 @@ functionality.
 
 -   [Firebase](https://firebase.google.com) with Firestore DB - The back-end
     framework, which enables authentication and hosts the the DB.
+-   [MaterialUI](https://material-ui.com/) for button styles, icons, form controls and so on visual improvements and infocards.
 
 ## Getting started
 
