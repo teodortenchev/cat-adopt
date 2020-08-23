@@ -12,6 +12,7 @@ const HomePage = () => {
     return (
         <PageLayout>
             <div className={styles.container}>
+                {/* //Property drilling ! I can use the context directly where it is needed and pass only the events here */}
                 <WelcomeContent isAdmin={isAdmin} isLoggedIn={isLoggedIn} appUser={appUser} event={firebase.resetCats} event2={firebase.hideCats} />
             </div>
         </PageLayout>

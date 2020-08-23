@@ -40,7 +40,8 @@ const AdminGreeting = ({ user, event, event2 }) => {
     return (
         <div className={styles.text}>
             <Title title={`Welcome back, ${user.displayName} (admin)`} />
-            <p>There are [PLACEHOLDER] kitties up for adoption and [PLACEHOLDER] pending requests.</p>
+            <p>It's a beautiful day, go find a home for the kitties!</p>
+            {/* <p>There are [PLACEHOLDER] kitties up for adoption and [PLACEHOLDER] pending requests.</p> */}
             <h3>Available Actions</h3>
             <div className={styles.links}>
                 <SimpleLink title="Add Cat For Adoption" styleType="main-page" to="/cats/add" />

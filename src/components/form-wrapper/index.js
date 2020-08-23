@@ -7,8 +7,6 @@ const FormWrapper = (props) => {
             <form className={styles.form}>
                 {props.children}
             </form>
-
-
         </div>
     )
 }
