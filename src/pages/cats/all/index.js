@@ -11,7 +11,7 @@ import UserContext from '../../../Context';
 
 const AllCatsPage = () => {
 
-    const [cats, setCats] = useState('');
+    const [cats, setCats] = useState(null);
     const { isAdmin } = useContext(UserContext);
 
     useEffect(() => {

@@ -10,7 +10,6 @@ const ProfilePage = () => {
     const { appUser } = useContext(UserContext);
 
     const picture = appUser.photoURL;
-    console.log(appUser)
 
     return (
         <PageLayout>

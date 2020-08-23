@@ -26,8 +26,8 @@ const PendingAdoptionsPage = (props) => {
         await firebase.approveAdoption(catId);
         console.log("APPROVED")
     }
-    async function reject(catId) {
-        await firebase.rejectAdoption(catId);
+    async function reject(catId, userId) {
+        await firebase.rejectAdoption(catId, userId);
         console.log("REJECTED")
 
 
@@ -40,12 +40,13 @@ const PendingAdoptionsPage = (props) => {
 
                 <div className={styles.container}>
                     <Title title="Pending Adoptions" />
-                    {cats.map(cat => (
-                        <div className={styles.cat} key={cat.id}>
-                            <AdoptionRowAdmin cat={cat} approve={e => approve(cat.id)}
-                                reject={e => reject(cat.id)} />
-                        </div>
-                    ))}
+                    {cats.length === 0 ? <div className={styles.empty}><h4>There are no pending adoption requests.</h4></div>
+                        : cats.map(cat => (
+                            <div className={styles.cat} key={cat.id}>
+                                <AdoptionRowAdmin cat={cat} approve={e => approve(cat.id)}
+                                    reject={e => reject(cat.id, cat.requestedBy)} />
+                            </div>
+                        ))}
 
                 </div>
 
